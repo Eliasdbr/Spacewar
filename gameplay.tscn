@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxqqqsuudurah"]
+
+[ext_resource type="PackedScene" uid="uid://blikhrhwf2smn" path="res://ships/ship.tscn" id="1_u6k7e"]
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ship" parent="Environment" instance=ExtResource("1_u6k7e")]

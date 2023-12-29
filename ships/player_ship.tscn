@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bch4654g3qccc"]
+
+[ext_resource type="PackedScene" uid="uid://blikhrhwf2smn" path="res://ships/ship.tscn" id="1_onnj3"]
+[ext_resource type="Script" path="res://components/tank_controls.gd" id="2_yeqfe"]
+
+[node name="PlayerShip" instance=ExtResource("1_onnj3")]
+
+[node name="Movement" parent="." index="1"]
+friction_factor = 0.0
+
+[node name="TankControls" type="Node" parent="." index="2" node_paths=PackedStringArray("movement")]
+script = ExtResource("2_yeqfe")
+movement = NodePath("../Movement")

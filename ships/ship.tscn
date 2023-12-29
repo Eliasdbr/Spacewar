@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://blikhrhwf2smn"]
+[gd_scene load_steps=2 format=3 uid="uid://blikhrhwf2smn"]
+
+[ext_resource type="Script" path="res://components/movement.gd" id="1_htn7r"]
 
 [node name="Ship" type="Node2D"]
 
@@ -9,3 +11,6 @@ points = PackedVector2Array(19, 0, -11, -12, -3.5, 0, -11, 12)
 closed = true
 width = 2.0
 joint_mode = 2
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("1_htn7r")

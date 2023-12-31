@@ -8,6 +8,6 @@
 [node name="Movement" parent="." index="1"]
 friction_factor = 0.0
 
-[node name="TankControls" type="Node" parent="." index="2" node_paths=PackedStringArray("movement")]
+[node name="TankControls" type="Node" parent="." index="3" node_paths=PackedStringArray("movement")]
 script = ExtResource("2_yeqfe")
 movement = NodePath("../Movement")

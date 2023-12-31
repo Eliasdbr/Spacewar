@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://blikhrhwf2smn"]
+[gd_scene load_steps=4 format=3 uid="uid://blikhrhwf2smn"]
 
 [ext_resource type="Script" path="res://components/movement.gd" id="1_htn7r"]
 [ext_resource type="Script" path="res://ships/ship.gd" id="1_x0vad"]
+[ext_resource type="Script" path="res://components/screen_wrap.gd" id="3_vi04t"]
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_x0vad")
@@ -17,7 +18,5 @@ joint_mode = 2
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_htn7r")
 
-[node name="ScreenWrap" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-20, -20, 40, 40)
-
-[connection signal="screen_exited" from="ScreenWrap" to="." method="_on_screen_wrap_screen_exited"]
+[node name="ScreenWrap" type="Node2D" parent="."]
+script = ExtResource("3_vi04t")

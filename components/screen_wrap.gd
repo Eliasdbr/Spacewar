@@ -25,5 +25,3 @@ func _process(_delta):
 		0, screen.size.y
 	)
 	
-	print(parent.global_position)
-	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxqqqsuudurah"]
+[gd_scene load_steps=3 format=3 uid="uid://bxqqqsuudurah"]
 
 [ext_resource type="PackedScene" uid="uid://bch4654g3qccc" path="res://ships/player_ship.tscn" id="1_xbv2a"]
+[ext_resource type="PackedScene" uid="uid://drm8s2nknmxay" path="res://projectiles/projectile.tscn" id="2_aysh4"]
 
 [node name="Gameplay" type="Node2D"]
 
@@ -8,3 +9,6 @@
 
 [node name="PlayerShip" parent="Environment" instance=ExtResource("1_xbv2a")]
 position = Vector2(576, 324)
+
+[node name="Projectile" parent="Environment" instance=ExtResource("2_aysh4")]
+position = Vector2(320, 64)

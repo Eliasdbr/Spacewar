@@ -24,10 +24,9 @@ func _on_hitbox_area_entered(area: Area2D):
 	# TODO: Add collision with other objects
 	var other = area.get_parent()
 	# Collision with a player ship
-	if (
-		area.get_collision_layer_value(2)
-		and get_instance_id() != other.get_instance_id()
-	):
+	if area.get_collision_layer_value(2):
+		if owner_ship and owner_ship.get_instance_id() == other.get_instance_id():
+			return
 		# TODO: add proper effects
 		other.queue_free()
 		queue_free()

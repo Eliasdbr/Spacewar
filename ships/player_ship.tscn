@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bch4654g3qccc"]
+[gd_scene load_steps=4 format=3 uid="uid://bch4654g3qccc"]
 
 [ext_resource type="PackedScene" uid="uid://blikhrhwf2smn" path="res://ships/ship.tscn" id="1_onnj3"]
 [ext_resource type="Script" path="res://components/tank_controls.gd" id="2_yeqfe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rw2t6"]
+radius = 12.0
 
 [node name="PlayerShip" instance=ExtResource("1_onnj3")]
 
@@ -11,3 +14,12 @@ friction_factor = 0.0
 [node name="TankControls" type="Node" parent="." index="3" node_paths=PackedStringArray("movement")]
 script = ExtResource("2_yeqfe")
 movement = NodePath("../Movement")
+
+[node name="Hurtbox" type="Area2D" parent="." index="4"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_rw2t6")
+debug_color = Color(1, 0, 0, 0.419608)

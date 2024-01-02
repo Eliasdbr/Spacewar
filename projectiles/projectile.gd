@@ -22,10 +22,13 @@ func _process(delta):
 
 func _on_hitbox_area_entered(area: Area2D):
 	# TODO: Add collision with other objects
-	var first_collision: Area2D = area.get_overlapping_areas().front() as Area2D
-	var other = first_collision.get_parent()
+	var other = area.get_parent()
 	# Collision with a player ship
-	if (first_collision.get_collision_layer_value(2)
-	and not(other != owner_ship)):
+	if (
+		area.get_collision_layer_value(2)
+		and get_instance_id() != other.get_instance_id()
+	):
 		# TODO: add proper effects
 		other.queue_free()
+		queue_free()
+	

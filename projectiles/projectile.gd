@@ -14,6 +14,9 @@ var damage: float = 1.0
 
 func _ready():
 	movement.velocity = direction.normalized() * speed
+	if (owner_ship and owner_ship is Ship):
+		var ship_movement = owner_ship.find_child("Movement")
+		movement.velocity += ship_movement.velocity
 
 func _process(delta):
 	if distance_reached >= p_range:

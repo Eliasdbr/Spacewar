@@ -7,4 +7,9 @@
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="PlayerShip" parent="Environment" instance=ExtResource("1_xbv2a")]
-position = Vector2(576, 324)
+position = Vector2(256, 320)
+
+[node name="PlayerShip2" parent="Environment" instance=ExtResource("1_xbv2a")]
+position = Vector2(832, 320)
+rotation = 3.14159
+player_number = 2

@@ -4,18 +4,19 @@ extends Node2D
 
 @export var speed: float = 200.0
 @export var direction: Vector2 = Vector2.RIGHT
-@export var range: float = 1000.0 # in pixels
+@export var p_range: float = 1000.0 # in pixels
 
 @onready var movement: Movement = $Movement
 
 var owner_ship: Ship = null
 var distance_reached: float = 0.0
+var damage: float = 1.0
 
 func _ready():
 	movement.velocity = direction.normalized() * speed
 
 func _process(delta):
-	if distance_reached >= range:
+	if distance_reached >= p_range:
 		queue_free()
 	distance_reached += speed * delta
 	

@@ -3,6 +3,8 @@ extends Node
 
 ## Movement component
 @export var movement: Movement = null
+## Weapon component
+@export var weapon: Weapon = null
 ## Player number.
 @export_range(1, 2) var player: int = 1
 ## Rotation speed in radians per second.
@@ -33,7 +35,12 @@ func _process(delta):
 		"p"+str(player)+"_rotate_cw"
 	)
 	var throttling = Input.is_action_pressed("p"+str(player)+"_thrust")
-	var shooting = Input.is_action_just_pressed("p"+str(player)+"_shoot")
+	var shooting: bool = false
+	if weapon:
+		if weapon.trigger_mode == weapon.TRIGGER.Semiautomatic:
+			shooting = Input.is_action_just_pressed("p"+str(player)+"_shoot")
+		else:
+			shooting = Input.is_action_pressed("p"+str(player)+"_shoot")
 	
 	# Sets rotation
 	rotation = rotation_input * rotation_speed * delta
@@ -43,4 +50,8 @@ func _process(delta):
 	movement.acceleration = (
 		Vector2.RIGHT.rotated(parent.global_rotation) * float(throttling) * 1.0
 	)
+	
+	# Shooting
+	if weapon and shooting:
+		weapon.shoot()
 #

@@ -8,8 +8,10 @@
 
 [node name="PlayerShip" parent="Environment" instance=ExtResource("1_xbv2a")]
 position = Vector2(256, 320)
+line_color = Color(0.2, 0.733333, 1, 1)
 
 [node name="PlayerShip2" parent="Environment" instance=ExtResource("1_xbv2a")]
 position = Vector2(832, 320)
 rotation = 3.14159
 player_number = 2
+line_color = Color(1, 0.266667, 0.2, 1)

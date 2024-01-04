@@ -1,3 +1,5 @@
+class_name PlayerShip
+
 extends Ship
 
 @export_range(1, 2) var player_number: int = 1
@@ -8,7 +10,7 @@ extends Ship
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#super()
+	super()
 	tank_controls.player = player_number
 	out_line_2d.default_color = line_color
 	#out_line_2d.default_color = line_color

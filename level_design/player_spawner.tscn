@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv0sgo854j5f3"]
+
+[ext_resource type="PackedScene" uid="uid://cjwu215jye6fd" path="res://level_design/spawner.tscn" id="1_bfsci"]
+[ext_resource type="Script" path="res://level_design/player_spawner.gd" id="2_0n0rv"]
+
+[node name="PlayerSpawner" instance=ExtResource("1_bfsci")]
+script = ExtResource("2_0n0rv")
+player_number = 1

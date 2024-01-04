@@ -1,17 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxqqqsuudurah"]
+[gd_scene load_steps=3 format=3 uid="uid://bxqqqsuudurah"]
 
-[ext_resource type="PackedScene" uid="uid://bch4654g3qccc" path="res://ships/player_ship.tscn" id="1_xbv2a"]
+[ext_resource type="Script" path="res://gameplay.gd" id="1_n6nkq"]
+[ext_resource type="PackedScene" uid="uid://bv0sgo854j5f3" path="res://level_design/player_spawner.tscn" id="2_86h0y"]
 
 [node name="Gameplay" type="Node2D"]
+script = ExtResource("1_n6nkq")
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="PlayerShip" parent="Environment" instance=ExtResource("1_xbv2a")]
-position = Vector2(256, 320)
-line_color = Color(0.2, 0.733333, 1, 1)
+[node name="PlayerSpawner1" parent="Environment" node_paths=PackedStringArray("context") groups=["spawners"] instance=ExtResource("2_86h0y")]
+position = Vector2(256, 192)
+context = NodePath("..")
+delay = 1.5
+spawner_color = Color(0, 0.5, 1, 1)
 
-[node name="PlayerShip2" parent="Environment" instance=ExtResource("1_xbv2a")]
-position = Vector2(832, 320)
-rotation = 3.14159
+[node name="PlayerSpawner2" parent="Environment" node_paths=PackedStringArray("context") groups=["spawners"] instance=ExtResource("2_86h0y")]
+position = Vector2(896, 448)
 player_number = 2
-line_color = Color(1, 0.266667, 0.2, 1)
+context = NodePath("..")
+delay = 1.5
+spawner_color = Color(1, 0.2, 0.2, 1)

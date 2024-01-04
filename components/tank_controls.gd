@@ -5,6 +5,8 @@ extends Node
 @export var movement: Movement = null
 ## Weapon component
 @export var weapon: Weapon = null
+## Ship Nozzle. It's a particle emitter.
+@export var nozzle: CPUParticles2D = null
 ## Player number.
 @export_range(1, 2) var player: int = 1
 ## Rotation speed in radians per second.
@@ -50,6 +52,8 @@ func _process(delta):
 	movement.acceleration = (
 		Vector2.RIGHT.rotated(parent.global_rotation) * float(throttling) * 1.0
 	)
+	# Particles effect
+	if nozzle and throttling: nozzle.emitting = true
 	
 	# Shooting
 	if weapon and shooting:

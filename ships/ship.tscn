@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://blikhrhwf2smn"]
+[gd_scene load_steps=6 format=3 uid="uid://blikhrhwf2smn"]
 
 [ext_resource type="Script" path="res://components/movement.gd" id="1_htn7r"]
 [ext_resource type="Script" path="res://ships/ship.gd" id="1_x0vad"]
 [ext_resource type="Script" path="res://components/screen_wrap.gd" id="3_vi04t"]
 [ext_resource type="Script" path="res://weapons/weapon.gd" id="4_y6gkw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aguhy"]
+radius = 6.0
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_x0vad")
@@ -30,3 +33,25 @@ script = ExtResource("3_vi04t")
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("4_y6gkw")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_aguhy")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Nozzle" type="CPUParticles2D" parent="."]
+position = Vector2(-4, 0)
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 4.0
+local_coords = true
+direction = Vector2(-4, 0)
+spread = 22.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 32.0

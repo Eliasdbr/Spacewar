@@ -7,6 +7,7 @@ extends Node2D
 @export var p_range: float = 1000.0 # in pixels
 
 @onready var movement: Movement = $Movement
+@onready var line_2d = $Line2D
 
 var owner_ship: Ship = null
 var distance_reached: float = 0.0
@@ -19,6 +20,7 @@ func _ready():
 		movement.velocity += ship_movement.velocity
 
 func _process(delta):
+	line_2d.points[1] = -movement.velocity * delta * 2.0
 	if distance_reached >= p_range:
 		queue_free()
 	distance_reached += speed * delta

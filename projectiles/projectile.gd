@@ -5,6 +5,8 @@ extends Node2D
 @export var speed: float = 200.0
 @export var direction: Vector2 = Vector2.RIGHT
 @export var p_range: float = 1000.0 # in pixels
+## For gravity
+@export var mass := 1.0
 
 @onready var movement: Movement = $Movement
 @onready var line_2d = $Line2D
@@ -30,6 +32,8 @@ func _on_hitbox_area_entered(area: Area2D):
 	# TODO: Add collision with other objects
 	var other = area.get_parent()
 	# Collision with a player ship
+	if area.get_collision_layer_value(1):
+		queue_free()
 	if area.get_collision_layer_value(2):
 		if owner_ship and owner_ship.get_instance_id() == other.get_instance_id():
 			return

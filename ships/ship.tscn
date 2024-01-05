@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_aguhy"]
 radius = 6.0
 
-[node name="Ship" type="Node2D"]
+[node name="Ship" type="Node2D" groups=["gravity_affected"]]
 script = ExtResource("1_x0vad")
 
 [node name="OutLine2D" type="Line2D" parent="."]
@@ -33,6 +33,7 @@ script = ExtResource("3_vi04t")
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("4_y6gkw")
+cooldown = 500.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

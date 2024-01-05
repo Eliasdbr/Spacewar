@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://pe061ov1ay06"]
+
+[ext_resource type="Script" path="res://level_design/star.gd" id="1_qkj8l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w32yc"]
+radius = 8.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_gfkkf"]
+radius = 8.0
+height = 16.0
+
+[node name="Star" type="Area2D"]
+collision_mask = 14
+monitoring = false
+script = ExtResource("1_qkj8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w32yc")
+debug_color = Color(1, 0.768627, 0, 0.584314)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_gfkkf")

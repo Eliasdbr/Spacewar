@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://xax8rbsiccvs"]
+
+[ext_resource type="Script" path="res://effects/explosion.gd" id="1_428nf"]
+
+[sub_resource type="Gradient" id="Gradient_gj156"]
+offsets = PackedFloat32Array(0, 0.24, 0.446667, 0.733333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.975417, 0.850746, 0.99122, 1, 0.835294, 0, 0.941176, 1, 0.290196, 0.0980392, 0.85098, 1, 0.290196, 0.0980392, 0)
+
+[node name="Explosion" type="CPUParticles2D"]
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+damping_min = 50.0
+damping_max = 200.0
+color_ramp = SubResource("Gradient_gj156")
+script = ExtResource("1_428nf")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

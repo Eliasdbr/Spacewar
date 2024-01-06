@@ -38,6 +38,6 @@ func _on_hitbox_area_entered(area: Area2D):
 		if owner_ship and owner_ship.get_instance_id() == other.get_instance_id():
 			return
 		# TODO: add proper effects
-		other.queue_free()
+		other.destroy()
 		queue_free()
 	

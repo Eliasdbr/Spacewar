@@ -13,6 +13,7 @@ height = 16.0
 collision_mask = 14
 monitoring = false
 script = ExtResource("1_qkj8l")
+mass = 3000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w32yc")

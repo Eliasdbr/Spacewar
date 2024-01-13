@@ -4,7 +4,7 @@ extends Control
 @onready var score_label = %ScoreLabel
 @onready var margin_container = %MarginContainer
 
-@export_range(1,2) var player_number := 1
+@export_range(1,4) var player_number := 1
 
 @export var score := 0:
 	set(value):

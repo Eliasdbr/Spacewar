@@ -37,7 +37,9 @@ func _on_hitbox_area_entered(area: Area2D):
 	if area.get_collision_layer_value(2):
 		if owner_ship and owner_ship.get_instance_id() == other.get_instance_id():
 			return
-		# TODO: add proper effects
+		var gameplay_node = $"/root/Main/Gameplay"
+		if owner_ship is PlayerShip:
+			owner_ship.addScore()
 		other.destroy()
 		queue_free()
 	

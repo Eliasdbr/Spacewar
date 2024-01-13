@@ -14,3 +14,11 @@ func _ready():
 	tank_controls.player = player_number
 	out_line_2d.default_color = line_color
 	#out_line_2d.default_color = line_color
+
+# Called after dying
+func destroy():
+	if can_respawn:
+		var gameplay_node = $"/root/Main/Gameplay"
+		if gameplay_node.has_method("requestRandomPlayerSpawn"):
+			gameplay_node.requestRandomPlayerSpawn(player_number, 2.0, line_color)
+	super()

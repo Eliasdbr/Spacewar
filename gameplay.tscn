@@ -14,14 +14,21 @@ script = ExtResource("1_n6nkq")
 position = Vector2(256, 192)
 context = NodePath("..")
 delay = 1.5
-spawner_color = Color(0, 0.5, 1, 1)
 
 [node name="PlayerSpawner2" parent="Environment" node_paths=PackedStringArray("context") groups=["spawners"] instance=ExtResource("2_86h0y")]
 position = Vector2(1664, 896)
-player_number = 2
 context = NodePath("..")
 delay = 1.5
-spawner_color = Color(1, 0.2, 0.2, 1)
+
+[node name="PlayerSpawner3" parent="Environment" node_paths=PackedStringArray("context") groups=["spawners"] instance=ExtResource("2_86h0y")]
+position = Vector2(1664, 192)
+context = NodePath("..")
+delay = 1.5
+
+[node name="PlayerSpawner4" parent="Environment" node_paths=PackedStringArray("context") groups=["spawners"] instance=ExtResource("2_86h0y")]
+position = Vector2(256, 896)
+context = NodePath("..")
+delay = 1.5
 
 [node name="Star" parent="Environment" instance=ExtResource("3_71qgu")]
 position = Vector2(960, 540)

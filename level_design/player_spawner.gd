@@ -1,3 +1,4 @@
+class_name PlayerSpawner
 extends Spawner
 
 @export var player_number: int = 1
@@ -11,3 +12,4 @@ func spawn():
 		ship.player_number = player_number
 		ship.line_color = spawner_color
 		context.add_child(ship)
+		is_spawning = false

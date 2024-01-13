@@ -8,14 +8,17 @@ extends Marker2D
 @export_color_no_alpha var spawner_color = Color.WHITE
 
 @onready var suck_in_particles = $SuckInParticles
+var is_spawning = false
 
 func spawn():
 	if context and scene_to_spawn:
 		var node_to_spawn = scene_to_spawn.instantiate()
 		node_to_spawn.global_position = global_position
 		context.add_child(node_to_spawn)
+		is_spawning = false
 
 func request_spawn():
+	is_spawning = true
 	suck_in_particles.lifetime = delay + 0.5
 	var accel_factor = suck_in_particles.emission_sphere_radius / delay
 	suck_in_particles.radial_accel_max = -accel_factor

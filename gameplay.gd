@@ -9,11 +9,20 @@ extends Node2D
 
 @export_range(1,4) var players_amount = 2
 
+@onready var ui_node = $UI
+
+var player_indicator_scene = preload("res://ui/player_indicator.tscn")
+
 func _ready():
 	# Pick random seed for RNG
 	randomize()
 	# Spawns the player(s)
 	for p in range(players_amount):
+		var player_indicator = player_indicator_scene.instantiate() as Control
+		player_indicator.player_number = p+1
+		player_indicator.name = "Player" + str(p+1) + "Indicator"
+		player_indicator.text_color = PLAYER_COLORS[p]
+		ui_node.add_child(player_indicator)
 		requestRandomPlayerSpawn(p+1, 1.0, PLAYER_COLORS[p])
 	
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxqqqsuudurah"]
+[gd_scene load_steps=5 format=3 uid="uid://bxqqqsuudurah"]
 
 [ext_resource type="Script" path="res://gameplay.gd" id="1_n6nkq"]
 [ext_resource type="PackedScene" uid="uid://bv0sgo854j5f3" path="res://level_design/player_spawner.tscn" id="2_86h0y"]
 [ext_resource type="PackedScene" uid="uid://pe061ov1ay06" path="res://level_design/star.tscn" id="3_71qgu"]
+[ext_resource type="AudioStream" uid="uid://dweppytpapmgn" path="res://assets/sound/spawn.ogg" id="4_xvdyj"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_n6nkq")
@@ -33,3 +34,6 @@ delay = 1.5
 position = Vector2(960, 540)
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xvdyj")

@@ -10,6 +10,7 @@ extends Node2D
 @export_range(1,4) var players_amount = 2
 
 @onready var ui_node = $UI
+@onready var respawn_sound = $SpawnSound
 
 var player_indicator_scene = preload("res://ui/player_indicator.tscn")
 
@@ -46,4 +47,5 @@ func requestRandomPlayerSpawn(
 		selected_spawner.player_number = player_number
 		selected_spawner.spawner_color = color
 		selected_spawner.request_spawn()
+		respawn_sound.play()
 

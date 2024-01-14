@@ -2,6 +2,10 @@ class_name Weapon
 
 extends Node
 
+## Slow Shooting sound files
+const slow_shooting_stream = preload("res://assets/sound/shoot_slow.ogg")
+const fast_shooting_stream = preload("res://assets/sound/shoot_fast.ogg")
+
 enum TRIGGER {
 	## Like a pistol. Only shoots after releasing and pressing the <shoot> key.
 	Semiautomatic,
@@ -57,3 +61,18 @@ func shoot():
 	environment.add_child(new_proj)
 	# Resets the cooldown counter
 	current_cooldown = cooldown
+	# Plays the shooting sound
+	makeShotSound()
+
+## Creates a temporary AudioStreamPlayer for the shooting sound
+func makeShotSound():
+	var shooting_sound = AudioStreamPlayer.new()
+	add_child(shooting_sound)
+	if trigger_mode == TRIGGER.Semiautomatic:
+		shooting_sound.stream = slow_shooting_stream
+	else:
+		shooting_sound.stream = fast_shooting_stream
+	shooting_sound.play()
+	# When it finishes playing the sound, delete itself
+	await shooting_sound.finished
+	shooting_sound.queue_free()

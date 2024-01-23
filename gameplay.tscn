@@ -31,6 +31,8 @@ context = NodePath("..")
 delay = 1.5
 
 [node name="Star" parent="Environment" instance=ExtResource("3_71qgu")]
+process_mode = 4
+visible = false
 position = Vector2(960, 540)
 
 [node name="UI" type="CanvasLayer" parent="."]

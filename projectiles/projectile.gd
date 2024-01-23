@@ -12,6 +12,7 @@ extends Node2D
 @onready var line_2d = $Line2D
 
 var owner_ship: Ship = null
+var owner_ship_id: int = -1
 var distance_reached: float = 0.0
 var damage: float = 1.0
 
@@ -20,6 +21,7 @@ func _ready():
 	if (owner_ship and owner_ship is Ship):
 		var ship_movement = owner_ship.find_child("Movement")
 		movement.velocity += ship_movement.velocity
+		owner_ship_id = owner_ship.get_instance_id()
 
 func _process(delta):
 	line_2d.points[1] = -movement.velocity * delta * 2.0
@@ -31,11 +33,12 @@ func _process(delta):
 func _on_hitbox_area_entered(area: Area2D):
 	# TODO: Add collision with other objects
 	var other = area.get_parent()
+	var other_id = other.get_instance_id()
 	# Collision with a player ship
 	if area.get_collision_layer_value(1):
 		queue_free()
 	if area.get_collision_layer_value(2):
-		if owner_ship and owner_ship.get_instance_id() == other.get_instance_id():
+		if owner_ship and owner_ship_id == other_id:
 			return
 		var gameplay_node = $"/root/Main/Gameplay"
 		if owner_ship is PlayerShip:

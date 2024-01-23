@@ -16,6 +16,8 @@ extends Node
 
 ## Parent orientation in radians
 var rotation: float = 0.0
+## Parent's Throttle Sound Node
+var throttle_sound: AudioStreamPlayer
 
 func _ready():
 	if not movement:
@@ -26,6 +28,7 @@ func _ready():
 		push_warning("TankControls: it needs a parent that exists and it has to be a Node2D")
 		return
 	#
+	throttle_sound = parent.get_node("ThrottleSound")
 #
 
 func _process(delta):
@@ -54,6 +57,13 @@ func _process(delta):
 	)
 	# Particles effect
 	if nozzle and throttling: nozzle.emitting = true
+	
+	# Throttle sound:
+	if throttle_sound:
+		if Input.is_action_just_pressed("p"+str(player)+"_thrust"):
+			throttle_sound.playing = true
+		if Input.is_action_just_released("p"+str(player)+"_thrust"):
+			throttle_sound.playing = false
 	
 	# Shooting
 	if weapon and shooting:

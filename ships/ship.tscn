@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://blikhrhwf2smn"]
+[gd_scene load_steps=7 format=3 uid="uid://blikhrhwf2smn"]
 
 [ext_resource type="Script" path="res://components/movement.gd" id="1_htn7r"]
 [ext_resource type="Script" path="res://ships/ship.gd" id="1_x0vad"]
 [ext_resource type="Script" path="res://components/screen_wrap.gd" id="3_vi04t"]
 [ext_resource type="Script" path="res://weapons/weapon.gd" id="4_y6gkw"]
+[ext_resource type="AudioStream" uid="uid://djhx6wultjnda" path="res://assets/sound/thrust.ogg" id="5_qn3kq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aguhy"]
 radius = 6.0
@@ -34,6 +35,7 @@ script = ExtResource("3_vi04t")
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("4_y6gkw")
 cooldown = 500.0
+w_range = 2000.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -56,3 +58,7 @@ spread = 22.5
 gravity = Vector2(0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 32.0
+
+[node name="ThrottleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qn3kq")
+volume_db = -10.0
